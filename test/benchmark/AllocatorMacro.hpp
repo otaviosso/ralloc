@@ -85,7 +85,7 @@ volatile static int init_count = 0;
   #ifdef SHM_SIMULATING
     #define HEAP_FILE "/dev/shm/gc_heap_wcai6"
   #else
-    #define HEAP_FILE "/mnt/pmem/gc_heap_wcai6"
+    #define HEAP_FILE "/mnt/nvram1/gc_heap_wcai6"
   #endif
 
   extern char *base_addr;
@@ -181,7 +181,7 @@ volatile static int init_count = 0;
   #ifdef SHM_SIMULATING
     #define HEAP_FILE "/dev/shm/pmdk_heap_wcai6"
   #else
-    #define HEAP_FILE "/mnt/pmem/pmdk_heap_wcai6"
+    #define HEAP_FILE "/mnt/nvram1/pmdk_heap_wcai6"
   #endif
   extern PMEMobjpool* pop;
   extern PMEMoid root;
@@ -222,7 +222,9 @@ volatile static int init_count = 0;
   inline int pm_init() {
     pop = pmemobj_create(HEAP_FILE, "test", REGION_SIZE, 0666);
     if (pop == nullptr) {
-      perror("pmemobj_create");
+      //perror("pmemobj_create");
+      pop = pmemobj_open(HEAP_FILE, "test");
+      root = pmemobj_root(pop, sizeof (PMDK_roots));
       return 1;
     }
     else {
