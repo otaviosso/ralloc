@@ -1,6 +1,7 @@
 #!/bin/bash
 # traditional allocator benchmarks from Hoard
-for alloc in  "lr" "r" "mak" "pmdk" # "je" 
+#for alloc in  "lr" "r" "mak" "pmdk" # "je" 
+for alloc in "r" "mak" "pmdk" # "je" 
 do
 	./run_larson.sh $alloc
 	./run_shbench.sh $alloc

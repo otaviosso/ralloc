@@ -81,11 +81,11 @@ linchart<-ggplot(data=lindata,
   guides(color=guide_legend(title=NULL,nrow = 2))+
   guides(linetype=guide_legend(title=NULL,nrow = 2))+
   scale_color_manual(values=color_key[names(color_key) %in% lindata$allocator])+
-  scale_x_continuous(breaks=c(1,10,20,30),#,40,50),#,60,70,80,90),
-                minor_breaks=c(5,15,25))+#,35,45))+#,55,65,75,85))+
+  scale_x_continuous(breaks=c(1,10,20,30,40,50,60,70,80,90),
+                minor_breaks=c(5,15,25,35,45,55,65,75,85))+
   scale_y_continuous(trans='log2',label=scientific_10,breaks=c(0.1,1,10,100,1000),
                 minor_breaks=c(0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,2,3,4,5,6,7,8,9,20,30,40,50,60,70,80,90,200,300,400,500,600,700,800,900,2000))+
-  theme(plot.margin = unit(c(.1,0,.1,0), "cm"))+
+  theme(plot.margin = unit(c(.2,0,.2,0), "cm"))+
   theme(legend.position=legend_pos,
      legend.direction="horizontal")+
   theme(text = element_text(size = 27))+
@@ -207,8 +207,8 @@ linchart<-ggplot(data=lindata,
   guides(color=guide_legend(title=NULL,nrow = 2))+
   guides(linetype=guide_legend(title=NULL,nrow = 2))+
   scale_color_manual(values=color_key[names(color_key) %in% lindata$allocator])+
-  scale_x_continuous(breaks=c(1,10,20,30,40,50),#,60,70,80,90),
-                minor_breaks=c(5,15,25,35,45))+#55,65,75,85))+
+  scale_x_continuous(breaks=c(1,10,20,30,40,50,60,70,80,90),
+                minor_breaks=c(5,15,25,35,45,55,65,75,85))+
   scale_y_continuous(limits=c(400,y_range_up),trans='log2',breaks=c(250,500,750,1000,1500,2000),
                     minor_breaks=c(200,300,400,500,600,700,800,900))+
 #   coord_cartesian(ylim = c(0, y_range_up))+

@@ -108,4 +108,4 @@ clean:
 	rm -f *_test
 	rm -rf ../obj/*
 	rm -f libralloc.a
-	rm -rf /mnt/pmem/*
+	rm -rf /mnt/nvram1/*
